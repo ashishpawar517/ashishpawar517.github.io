@@ -18,7 +18,7 @@ const posts = await getCollection("blog");
 const sortedPosts = getSortedPosts(posts);
 
 // Filter by Category (Include ALL posts, featured or not)
-/*
+
 const epPosts = sortedPosts.filter(({ data }) =>
   data.tags.some(tag =>
     [
@@ -59,7 +59,6 @@ const otherPosts = sortedPosts.filter(
       ].includes(tag.toLowerCase())
     )
 );
-*/
 ---
 
 <Layout>
