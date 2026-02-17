@@ -9,106 +9,168 @@ import Card from "@/components/Card.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
-import { SITE } from "@/config";
+import IconSearch from "@/assets/icons/IconSearch.svg";
+
 import { SOCIALS } from "@/constants";
 
 const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+
+// Filter by Category (Include ALL posts, featured or not)
+/*
+const epPosts = sortedPosts.filter(({ data }) =>
+  data.tags.some(tag =>
+    [
+      "electrophysiology",
+      "cardiology",
+      "arrhythmia",
+      "atrial flutter",
+    ].includes(tag.toLowerCase())
+  )
+);
+
+const pythonPosts = sortedPosts.filter(({ data }) =>
+  data.tags.some(tag =>
+    [
+      "python",
+      "coding",
+      "machine learning",
+      "web development",
+      "tutorial",
+    ].includes(tag.toLowerCase())
+  )
+);
+
+// Fallback for anything else not captured above
+const otherPosts = sortedPosts.filter(
+  ({ data }) =>
+    !data.tags.some(tag =>
+      [
+        "electrophysiology",
+        "cardiology",
+        "arrhythmia",
+        "atrial flutter",
+        "python",
+        "coding",
+        "machine learning",
+        "web development",
+        "tutorial",
+      ].includes(tag.toLowerCase())
+    )
+);
+*/
 ---
 
 <Layout>
   <Header />
   <main id="main-content" data-layout="index" class="app-layout">
     <section id="hero" class:list={["pt-8 pb-6", "border-b border-border"]}>
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
-      </h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="inline-block"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <IconRss
-          width={20}
-          height={20}
-          class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
-        />
-        <span class="sr-only">RSS Feed</span>
-      </a>
-
-      <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
-      </p>
-      <p class="mt-2">
-        Read the blog posts or check
-        <LinkButton
-          class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton> for more info.
-      </p>
-      {
-        // only display if at least one social link is enabled
-        SOCIALS.length > 0 && (
-          <div class="mt-4 flex max-sm:flex-col sm:items-center">
-            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
+      Hi, I'm Aashish
     </section>
 
-    {
-      featuredPosts.length > 0 && (
-        <section
-          id="featured"
-          class:list={[
-            "pt-12 pb-6",
-            { "border-b border-border": recentPosts.length > 0 },
-          ]}
-        >
-          <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
-          <ul>
-            {featuredPosts.map(data => (
-              <Card variant="h3" {...data} />
-            ))}
-          </ul>
-        </section>
-      )
-    }
-
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
-          <ul>
-            {recentPosts.map(
-              (data, index) =>
-                index < SITE.postPerIndex && <Card variant="h3" {...data} />
-            )}
-          </ul>
-        </section>
-      )
-    }
-
-    <div class="my-8 text-center">
-      <LinkButton href="/posts/">
-        All Posts
-        <IconArrowRight class="inline-block rtl:-rotate-180" />
+    <p>
+      Welcome to my technical blog! Here I share my journey in Machine Learning,
+      AI, and Software Development.
+    </p>
+    <p class="mt-2">
+      Feel free to check out my
+      <LinkButton
+        class="underline decoration-dashed underline-offset-4 hover:text-accent"
+        href="/posts/"
+      >
+        latest posts
       </LinkButton>
+      or read more
+      <LinkButton
+        class="underline decoration-dashed underline-offset-4 hover:text-accent"
+        href="/about/"
+      >
+        about me
+      </LinkButton>.
+    </p>
+    {
+      // only display if at least one social link is enabled
+      SOCIALS.length > 0 && (
+        <div class="mt-4 flex max-sm:flex-col sm:items-center">
+          <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
+          <Socials />
+        </div>
+      )
+    }
+
+    <div class="mt-6 flex w-full max-w-md">
+      <form action="/search" method="get" class="w-full">
+        <div class="relative">
+          <input
+            type="text"
+            name="q"
+            placeholder="Search topics..."
+            class="w-full rounded-md border border-border bg-transparent px-4 py-2 pr-10 focus:border-accent focus:outline-none"
+          />
+          <button
+            type="submit"
+            class="absolute top-0 right-0 h-full px-3 text-accent hover:text-accent/80"
+            aria-label="Submit search"
+          >
+            <IconSearch class="h-6 w-6" />
+          </button>
+        </div>
+      </form>
     </div>
   </main>
-  <Footer />
+
+  {
+    epPosts.length > 0 && (
+      <section id="ep-posts" class="pt-12 pb-6">
+        <h2 class="text-2xl font-semibold tracking-wide">
+          Cardiac Electrophysiology
+        </h2>
+        <ul>
+          {epPosts.map(data => (
+            <Card variant="h3" {...data} />
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    pythonPosts.length > 0 && (
+      <section id="python-posts" class="pt-12 pb-6">
+        <h2 class="text-2xl font-semibold tracking-wide">
+          Python & Development
+        </h2>
+        <ul>
+          {pythonPosts.map(data => (
+            <Card variant="h3" {...data} />
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    otherPosts.length > 0 && (
+      <section id="other-posts" class="pt-12 pb-6">
+        <h2 class="text-2xl font-semibold tracking-wide">Other Posts</h2>
+        <ul>
+          {otherPosts.map(data => (
+            <Card variant="h3" {...data} />
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <div class="my-8 text-center">
+    <LinkButton href="/posts/">
+      All Posts
+      <IconArrowRight class="inline-block rtl:-rotate-180" />
+    </LinkButton>
+  </div>
 </Layout>
+<Footer />
 
 <script>
   document.addEventListener("astro:page-load", () => {
