@@ -62,7 +62,7 @@ To navigate the file tree, open and closing files, renaming them, I mapped few o
     },
 ```
 
-There are some more and you can find about them [here](https://www.youtube.com/watch?v=GST8we5uABo)
+There are some more and you can find about them [here](https://www.youtube.com/watch?v=GST8we5uABo).
 
 ## Vim VSCode Customizations
 
@@ -230,6 +230,6 @@ Other mappings looks like this -
     },
 ```
 
-This is more of my setup. Complete setup file can be found [here](https://gist.github.com/ashishpawar517/6722036359e59601ff3c82fcb5a13b6d), I will create a separe blog article on my fav vim keybinds which are crazy super cool! Thanks for reading.
+This is more of my setup. Complete setup file can be found [here](https://gist.github.com/ashishpawar517/6722036359e59601ff3c82fcb5a13b6d), I will create a separate blog article on my fav vim keybinds which are crazy super cool! Thanks for reading.
 
-_Happy Writing!_
+_Happy Coding!_
