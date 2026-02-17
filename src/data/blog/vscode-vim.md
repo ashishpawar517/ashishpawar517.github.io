@@ -22,7 +22,7 @@ One day it just hit me, I was like if one vim navigation is this much useful to 
 
 So, since I started using vim, started using keyboard only navigation for everything in VSCode, so I hide everything else which was not needed to me. Also, kept the file explore on right instead of default left, which is killer cool! This is how it looks now!
 
-![Alt text](@assets/images/vscode-vim.gif)
+![Alt text](../../assets/images/vscode-vim.gif)
 
 ## Custom Actions to Map between Vim & VSCode
 
@@ -232,4 +232,5 @@ Other mappings looks like this -
 
 This is more of my setup. Complete setup file can be found [here](https://gist.github.com/ashishpawar517/6722036359e59601ff3c82fcb5a13b6d), I will create a separate blog article on my fav vim keybinds which are crazy super cool! Thanks for reading.
 
+![Alt text](../../assets/images/image.png)
 _Happy Coding!_
