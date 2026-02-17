@@ -14,7 +14,7 @@ export const SITE = {
   editPost: {
     enabled: true,
     text: "Edit page",
-    url: "https://github.com/ashishpawar517/ashishpawar517.github.io/edit/mainline/",
+    url: "https://github.com/ashishpawar517/ashishpawar517.github.io/edit/main/",
   },
   dynamicOgImage: true,
   dir: "ltr", // "rtl" | "auto"
