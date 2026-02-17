@@ -16,49 +16,6 @@ import { SOCIALS } from "@/constants";
 const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
-
-// Filter by Category (Include ALL posts, featured or not)
-
-const epPosts = sortedPosts.filter(({ data }) =>
-  data.tags.some(tag =>
-    [
-      "electrophysiology",
-      "cardiology",
-      "arrhythmia",
-      "atrial flutter",
-    ].includes(tag.toLowerCase())
-  )
-);
-
-const pythonPosts = sortedPosts.filter(({ data }) =>
-  data.tags.some(tag =>
-    [
-      "python",
-      "coding",
-      "machine learning",
-      "web development",
-      "tutorial",
-    ].includes(tag.toLowerCase())
-  )
-);
-
-// Fallback for anything else not captured above
-const otherPosts = sortedPosts.filter(
-  ({ data }) =>
-    !data.tags.some(tag =>
-      [
-        "electrophysiology",
-        "cardiology",
-        "arrhythmia",
-        "atrial flutter",
-        "python",
-        "coding",
-        "machine learning",
-        "web development",
-        "tutorial",
-      ].includes(tag.toLowerCase())
-    )
-);
 ---
 
 <Layout>
@@ -120,39 +77,9 @@ const otherPosts = sortedPosts.filter(
   </main>
 
   {
-    epPosts.length > 0 && (
-      <section id="ep-posts" class="pt-12 pb-6">
-        <h2 class="text-2xl font-semibold tracking-wide">
-          Cardiac Electrophysiology
-        </h2>
-        <ul>
-          {epPosts.map(data => (
-            <Card variant="h3" {...data} />
-          ))}
-        </ul>
-      </section>
-    )
-  }
-
-  {
-    pythonPosts.length > 0 && (
-      <section id="python-posts" class="pt-12 pb-6">
-        <h2 class="text-2xl font-semibold tracking-wide">
-          Python & Development
-        </h2>
-        <ul>
-          {pythonPosts.map(data => (
-            <Card variant="h3" {...data} />
-          ))}
-        </ul>
-      </section>
-    )
-  }
-
-  {
     otherPosts.length > 0 && (
       <section id="other-posts" class="pt-12 pb-6">
-        <h2 class="text-2xl font-semibold tracking-wide">Other Posts</h2>
+        <h2 class="text-2xl font-semibold tracking-wide">Latest Posts</h2>
         <ul>
           {otherPosts.map(data => (
             <Card variant="h3" {...data} />
@@ -180,3 +107,5 @@ const otherPosts = sortedPosts.filter(
     }
   });
 </script>
+
+// Refer for adv sorting : https://graceliying82.github.io/
