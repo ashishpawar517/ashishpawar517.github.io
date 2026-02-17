@@ -74,27 +74,27 @@ const sortedPosts = getSortedPosts(posts);
         </div>
       </form>
     </div>
+
+    {
+      otherPosts.length > 0 && (
+        <section id="other-posts" class="pt-12 pb-6">
+          <h2 class="text-2xl font-semibold tracking-wide">Latest Posts</h2>
+          <ul>
+            {otherPosts.map(data => (
+              <Card variant="h3" {...data} />
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <div class="my-8 text-center">
+      <LinkButton href="/posts/">
+        All Posts
+        <IconArrowRight class="inline-block rtl:-rotate-180" />
+      </LinkButton>
+    </div>
   </main>
-
-  {
-    otherPosts.length > 0 && (
-      <section id="other-posts" class="pt-12 pb-6">
-        <h2 class="text-2xl font-semibold tracking-wide">Latest Posts</h2>
-        <ul>
-          {otherPosts.map(data => (
-            <Card variant="h3" {...data} />
-          ))}
-        </ul>
-      </section>
-    )
-  }
-
-  <div class="my-8 text-center">
-    <LinkButton href="/posts/">
-      All Posts
-      <IconArrowRight class="inline-block rtl:-rotate-180" />
-    </LinkButton>
-  </div>
 </Layout>
 <Footer />
 
