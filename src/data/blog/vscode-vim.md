@@ -230,7 +230,7 @@ Other mappings looks like this -
     },
 ```
 
-This is more of my setup. Complete setup file can be found [here](https://gist.github.com/ashishpawar517/6722036359e59601ff3c82fcb5a13b6d), I will create a separate blog article on my fav vim keybinds which are crazy super cool! Thanks for reading.
+This is more of my setup. Complete setup file can be found [here](https://gist.github.com/ashishpawar517/6722036359e59601ff3c82fcb5a13b6d), I was also trying something more with custom CSS shown similar in this [video](https://youtu.be/9_I0bySQoCs?si=y-SdmYHgsQOzM75L). I will create a separate blog article on my fav vim keybinds which are crazy super cool! Thanks for reading.
 
 ![Alt text](../../assets/images/image.png)
 _Happy Coding!_
